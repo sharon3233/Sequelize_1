@@ -1,0 +1,25 @@
+{
+  "name": "sequelize_1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "jest": "^27.0.6",
+    "sequelize": "^6.6.5",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sharon3233/Sequelize_1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sharon3233/Sequelize_1/issues"
+  },
+  "homepage": "https://github.com/sharon3233/Sequelize_1#readme"
+}
