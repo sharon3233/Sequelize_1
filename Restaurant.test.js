@@ -12,7 +12,7 @@ describe('Restaurant, Menu & Item', () => {
 
     test('can create a restaurant', async () => {
         const restaurant = await Restaurant.create({ name: 'Lubys', location: 'Dallas,Tx' })
-        expect(restaurant.id).toBe(3 ,'changes2')
+        expect(restaurant.id).toBe(3 ,'changes44')
     })
 
     test('has a location', async () => {
