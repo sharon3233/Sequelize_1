@@ -39,21 +39,40 @@ describe('Restaurant, Menu & Item', () => {
         expect(item.price).toBe(10)
     })
 
-    test('Menu has many appetizers & beverage choices', async () => {
-        const menu = await Menu.create({appetizers: 'wings', beverage: 'Grape Soda' })
+    test('Restaurant has many menus', async () => {
+        const menu = await Restaurant.create({name: 'Madeas', location: 'Everman,Tx' })
 
-        const fried = await Item.create({name: 'Lemon Pepper Chicken', price:  15 })
-        const baked = await Item.create({name: 'Mushroom Chicken', price: 12})
-        const boiled = await Item.create({name: 'Chicken & Dumpling', price: 10})
+        const breakfast = await Menu.create({appetizers: 'French Toast roll ups', beverage: 'Apple Juice' })
+        const brunch = await Menu.create({appetizers: "Kesh Bites", beverage: 'Apple Martini'})
+        const lunch = await Menu.create({appetizers: 'Queso & Chips', beverage: 'Sweet Tea'})
+        const dinner = await Menu.create({appetizers: 'Steak sticks', beverage: "Long Island"})
 
-        await menu.addItem(fried)
-        await menu.addItem(baked)
-        await menu.addItem(boiled)
+        await menu.addMenu(breakfast)
+        await menu.addMenu(brunch)
+        await menu.addMenu(lunch)
+        await menu.addMenu(dinner)
 
-        const items = await menu.getItems()
+        const menus = await menu.getMenus()
 
-        expect(items.length).toBe(3)
-		expect(items[0] instanceof Item).toBeTruthy
+        expect(menus.length).toBe(4)
+		expect(menus[0] instanceof Restaurant).toBeTruthy
+
+    })
+
+    test('Menu has Items under $20.00', async() => {
+        const  breakfastPrices = await Menu.create({appetizers: "Breakfast", beverage: 'Juice'  })
+        const  itemList = await Item.create({name:'Kesh', price: 15})
+        
+        
+        await breakfastPrices.addItem(itemList)
+        
+        
+
+        const item = await breakfastPrices.getItems()
+        console.log(item[0],'prices')
+
+        expect(item[0].price <= 20).toBe(true)
+        
 
     })
 
