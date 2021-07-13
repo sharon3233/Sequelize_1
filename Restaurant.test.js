@@ -9,9 +9,10 @@ describe('Restaurant, Menu & Item', () => {
         await sequelize.sync({ force: true });
     })
 
+
     test('can create a restaurant', async () => {
         const restaurant = await Restaurant.create({ name: 'Lubys', location: 'Dallas,Tx' })
-        expect(restaurant.id).toBe(3)
+        expect(restaurant.id).toBe(3 ,'changes')
     })
 
     test('has a location', async () => {
